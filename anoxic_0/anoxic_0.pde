@@ -22,8 +22,8 @@ void setup(){
   background(black);
   iniDiam = width/10;
   iniRot = 0.01;
-  iniXOff = 1;
-  iniYOff = 0;
+  iniXOff = nPlates;
+  iniYOff = nPlates+2;
   // for this one, all circles are alike
   fill(white);
   stroke(black);
@@ -34,12 +34,12 @@ void setup(){
   float rot = iniRot;
   float xOff = iniXOff;
   float yOff = iniYOff;
-  for(int i = 0; i <= nPlates; i++){
+  for(int i =0; i <= nPlates; i++){
     ///float r, int xo, int yo, float d
     plates.add(new Plate(0.5, xOff, yOff, diam));
-    diam += ((width - iniDiam) / nPlates);
-    xOff += 1;
-    yOff += 1;
+    diam += ((width + (width/10)- (1.5*i*i)) / nPlates);
+    xOff -= 1;
+    yOff -= 1;
     
   }  
 }
