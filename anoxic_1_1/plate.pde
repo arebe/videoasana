@@ -33,8 +33,8 @@ class Plate{
   void spdraw(){
     float r = 10;
     float theta = 0.5;
-    float x1 = r;
-    float y1 = r;
+    float x1 = 0;
+    float y1 = 0;
     float x2 = x1;
     float y2 = y1;
 

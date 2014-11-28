@@ -20,7 +20,8 @@ int iniXOff;
 int iniYOff;
 
 void setup(){
-  size(1800, 1200);
+  // size(1680, 1050); // mac
+  size(858, 480); // pico
   background(black);
   iniDiam = width/10;
   iniRot = 0.01;
@@ -41,15 +42,15 @@ void setup(){
     plates.add(new Plate(0  , xOff, yOff, diam, 'e'));
     diam += ((width + (width/10)) / nPlates);
   }  
-  splate1 = new Plate(width/100, xOff, yOff, width, 's');
-  splate2 = new Plate(width/100, xOff, yOff, width, 's');
+  splate1 = new Plate(30, xOff, yOff, width, 's');
+  splate2 = new Plate(30, xOff, yOff, width, 's');
   smooth(); 
 }
 
 void draw(){
-  background(black);
-  fill(white);
-  stroke(black);
+  background(white);
+  fill(black);
+  stroke(white);
   strokeWeight(5);
   for(int i=nPlates; i > 0; i--){
     Plate p = plates.get(i);
@@ -57,12 +58,20 @@ void draw(){
     p.update();
   }  
   noFill();
-  stroke(white);
+  stroke(black);
   strokeWeight(40);
   splate1.displate();
   splate1.update();
-  stroke(black);
+  stroke(white);
   strokeWeight(4);
   splate2.displate();
   splate2.update();
+  fill(black);
+  noStroke();
+  ellipse(width/2, height/2, 10, 10);
+  saveFrame("frames/an11_####.png");
+  if (millis() > 180000){
+    noLoop();
+  }
+
 }
